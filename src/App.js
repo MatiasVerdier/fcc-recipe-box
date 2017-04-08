@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecipeList from './components/RecipeList';
-import SearchBox from './components/SearchBox';
+import RecipeHeader from './components/RecipeHeader';
 import RecipeForm from './components/RecipeForm';
 import api from './api';
 
@@ -44,19 +44,18 @@ class App extends Component {
   render() {
     return (
       <div className="ui container">
-        <div className="ui vertical segment">
-          <h1 className="ui header">List of recipes</h1>
 
-          <SearchBox search={this.state.searchText} onSearch={this.onSearchChange}/>
-
-          <button className="ui right floated circular icon button" onClick={this.showCreateForm}>
-            <i className="icon plus"></i>
-          </button>
-        </div>
+        <RecipeHeader
+          title="List of recipes"
+          searchText={this.state.searchText}
+          onSearchChange={this.onSearchChange}
+          onCreateClick={this.showCreateForm}
+        />
 
         <RecipeForm onFormSubmit={this.saveRecipe} onFormCancel={this.hideCreateForm} visible={this.state.isCreate} />
 
         <RecipeList recipes={this.state.recipes} visible={!this.state.isCreate} />
+        
       </div>
     );
   }
