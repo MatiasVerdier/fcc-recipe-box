@@ -36,8 +36,9 @@ class App extends Component {
     this.setState({ isCreate: false });
   }
   
-  saveRecipe(e) {
-    e.preventDefault();
+  saveRecipe(recipe) {
+    const recipes = api.addRecipe(recipe);
+    this.setState({ recipes });
     this.hideCreateForm();
   }
   
@@ -52,10 +53,9 @@ class App extends Component {
           onCreateClick={this.showCreateForm}
         />
 
-        <RecipeForm onFormSubmit={this.saveRecipe} onFormCancel={this.hideCreateForm} visible={this.state.isCreate} />
+        <RecipeForm onSave={this.saveRecipe} onFormCancel={this.hideCreateForm} visible={this.state.isCreate} />
 
         <RecipeList recipes={this.state.recipes} visible={!this.state.isCreate} />
-        
       </div>
     );
   }
