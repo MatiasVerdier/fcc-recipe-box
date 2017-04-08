@@ -8,7 +8,7 @@ const RecipeList = (props) => {
     
   return (
     <div className="ui vertical segment" style={{display: props.visible ? 'block' : 'none'}}>
-      <div className="ui four doubling cards">
+      <div className="ui three doubling cards">
         { recipes }
       </div>
     </div>

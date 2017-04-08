@@ -23,8 +23,8 @@ class RecipeForm extends React.Component {
             <textarea>{this.recipeIngredients}</textarea>
           </div>
 
-          <button className="ui primary button" type="submit">Create</button>
           <div className="ui button" onClick={this.props.onFormCancel}>Cancel</div>
+          <button className="ui primary button" type="submit">Create</button>
         </form>
       </div>
     );
